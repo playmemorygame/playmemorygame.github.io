@@ -3,213 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Advanced Word Puzzle</title>
-      <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        text-align: center;
-        background: linear-gradient(135deg, #00c6ff, #0072ff);
-        color: #fff;
-        padding: 20px;
-        background-attachment: fixed;
-        background-size: cover;
-        box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.2);
-    }
+    <title>Stages</title>
 
-    h1 {
-        font-size: 3rem;
-        text-transform: uppercase;
-        letter-spacing: 5px;
-        text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3), 0 0 25px #ff00c8, 0 0 5px #ff00c8;
-        margin-bottom: 30px;
-        color: #ffdd00;
-        animation: glowing 1.5s ease-in-out infinite alternate;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
+        }
 
-    @keyframes glowing {
-        0% { text-shadow: 0 0 5px #ff00c8, 0 0 10px #ff00c8, 0 0 20px #ff00c8; }
-        50% { text-shadow: 0 0 10px #ff00c8, 0 0 15px #ff00c8, 0 0 30px #ff00c8; }
-        100% { text-shadow: 0 0 20px #ff00c8, 0 0 30px #ff00c8, 0 0 50px #ff00c8; }
-    }
+        h1 {
+            text-align: center;
+        }
 
-    #lettersContainer {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-top: 20px;
-        gap: 15px;
-        transform: perspective(500px);
-    }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            grid-gap: 15px;
+            margin-bottom: 20px;
+        }
 
-    .letter {
-        padding: 20px 30px;
-        border-radius: 15px;
-        background: #ff4081;
-        font-size: 2rem;
-        cursor: grab;
-        user-select: none;
-        transition: transform 0.2s, background 0.3s, box-shadow 0.3s;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-		background-image: url('cat.webp');
-            background-size: cover;
-    }
+        .stage-btn {
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+        }
 
-    .letter:active {
-        transform: scale(1.2) rotateY(10deg);
-        background: #e91e63;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    }
+        .stage-btn:hover {
+            background: #0056b3;
+        }
 
-    #wordInput {
-        margin-top: 30px;
-        min-height: 60px;
-        padding: 20px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.2);
-        box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-        font-size: 1.8rem;
-        display: inline-block;
-        min-width: 200px;
-        border: 2px solid #fff;
-        transition: border 0.3s;
-    }
-
-    #wordInput:focus {
-        outline: none;
-        border-color: #ff00c8;
-        box-shadow: 0 0 20px rgba(255, 0, 200, 0.5);
-    }
-
-    p {
-        font-size: 1.5rem;
-        margin-top: 20px;
-        color: #ffdd00;
-        text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
-    }
-
-    span {
-        font-weight: bold;
-        font-size: 1.7rem;
-        color: #ff00c8;
-    }
-
-    /* Hover and animation effects for the letters */
-    .letter:hover {
-        transform: scale(1.1) rotate(5deg);
-        background: #ff80ab;
-        box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Text fading effect for the words */
-    #lettersContainer p {
-        font-size: 1.2rem;
-        animation: fadeIn 1s ease-in-out;
-    }
-
-    @keyframes fadeIn {
-        0% { opacity: 0; }
-        100% { opacity: 1; }
-    }
-</style>
-
-
+        .ad-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Advanced Word Puzzle</h1>
-    <div id="lettersContainer"></div>
-    <div id="wordInput" ondragover="event.preventDefault()" ondrop="dropLetter(event)"></div>
-    <p>Attempts left: <span id="attemptsValue">3</span></p>
-    <p>Time left: <span id="timerValue">25</span></p>
+
+    <h1>Select Stage</h1>
+
+    <div id="stageArea"></div>
+
     <script>
-        const wordsList = [
-            { word: "quantum", letters: ["q", "u", "a", "n", "t", "u", "m"] },
-            { word: "photon", letters: ["p", "h", "o", "t", "o", "n"] },
-            { word: "gravity", letters: ["g", "r", "a", "v", "i", "t", "y"] },
-            { word: "electromagnetism", letters: ["e", "l", "e", "c", "t", "r", "o", "m", "a", "g", "n", "e", "t", "i", "s", "m"] }
-        ];
+        const totalStages = 1000;
+        const stageArea = document.getElementById("stageArea");
 
-        let currentLevel = 0;
-        let attemptsLeft = 3;
-        let timer;
-        let currentWord = wordsList[currentLevel];
+        let container = document.createElement("div");
+        container.className = "container";
 
-        document.addEventListener("DOMContentLoaded", () => {
-            generateLetters(currentWord.letters);
-            startTimer();
-            updateAttempts();
-        });
+        for (let i = 1; i <= totalStages; i++) {
+            // Create button
+            let btn = document.createElement("a");
+            btn.className = "stage-btn";
+            btn.href = `level${i}.html`;  // You can change link structure
+            btn.textContent = "Stage " + i;
 
-        function generateLetters(letters) {
-            const lettersContainer = document.getElementById("lettersContainer");
-            lettersContainer.innerHTML = '';
-            const shuffledLetters = shuffleArray([...letters, ...shuffleArray("abcdefghijklmnopqrstuvwxyz".split('')).slice(0, 5)]);
-            shuffledLetters.forEach(letter => {
-                const letterElement = document.createElement("div");
-                letterElement.classList.add("letter");
-                letterElement.textContent = letter;
-                letterElement.draggable = true;
-                letterElement.addEventListener("dragstart", event => {
-                    event.dataTransfer.setData("text", event.target.textContent);
-                });
-                lettersContainer.appendChild(letterElement);
-            });
-        }
+            container.appendChild(btn);
 
-        function shuffleArray(arr) {
-            for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-            return arr;
-        }
+            // After every 10 buttons, insert an ad
+            if (i % 10 === 0) {
+                stageArea.appendChild(container);
 
-        function dropLetter(event) {
-            event.preventDefault();
-            const letter = event.dataTransfer.getData("text");
-            const span = document.createElement("span");
-            span.textContent = letter;
-            document.getElementById("wordInput").appendChild(span);
-            checkWord();
-        }
+                // Create Ad container
+                let adBox = document.createElement("div");
+                adBox.className = "ad-container";
 
-        function checkWord() {
-            const inputWord = document.getElementById("wordInput").innerText.trim().toLowerCase();
-            if (inputWord === currentWord.word) {
-                //alert("Congratulations! You won!");
-                //location.reload();
-				window.location.href='won.html';
-            } else if (inputWord.length >= currentWord.word.length) {
-                attemptsLeft--;
-                updateAttempts();
-                if (attemptsLeft <= 0) {
-                    //alert("Game Over! Try again.");
-                    //location.reload();
-					window.location.href='lose.html';
-                } else {
-                    document.getElementById("wordInput").innerHTML = '';
-                }
+                adBox.innerHTML = `
+                    <!-- Your Adsterra Banner -->
+                    <script type='text/javascript' src='//pl28100142.effectivegatecpm.com/b3/a4/06/b3a406290af525cf19e377b16859903a.js'></script>
+                `;
+
+                stageArea.appendChild(adBox);
+
+                // Start the next group of buttons
+                container = document.createElement("div");
+                container.className = "container";
             }
         }
 
-        function updateAttempts() {
-            document.getElementById("attemptsValue").textContent = attemptsLeft;
-        }
-
-        function startTimer() {
-            let timeLeft = 25;
-            clearInterval(timer);
-            document.getElementById("timerValue").textContent = timeLeft;
-            timer = setInterval(() => {
-                timeLeft--;
-                document.getElementById("timerValue").textContent = timeLeft;
-                if (timeLeft <= 0) {
-                   // clearInterval(timer);
-                   // alert("Time's up! You lost!");
-                   // location.reload();
-				   window.location.href='lose.html';
-                }
-            }, 1000);
-        }
+        // Append any remaining buttons
+        stageArea.appendChild(container);
     </script>
+
 </body>
 </html>
