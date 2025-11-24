@@ -3,75 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Won!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Stages</title>
+
     <style>
         body {
-            margin: 0;
-            font-family: 'Press Start 2P', cursive;
-            background-color: #1a1a1a;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-			  background-image: url('test9.jpg');
-            background-size: cover;
-        }
-
-        .modal-content {
-            background-color: #333;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            display: inline-block;
-            text-align: center;
-			  background-image: url('test9.jpg');
-            background-size: cover;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f4f4f4;
         }
 
         h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #ff00cc;
+            text-align: center;
         }
 
-        p {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
-        .medal {
-            font-size: 80px;
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            grid-gap: 15px;
             margin-bottom: 20px;
         }
 
-        #playAgainBtn {
-            background-color: #ff00cc;
+        .stage-btn {
+            padding: 12px;
+            background: #007bff;
             color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
         }
 
-        #playAgainBtn:hover {
-            background-color: #ff66b2;
+        .stage-btn:hover {
+            background: #0056b3;
+        }
+
+        .ad-container {
+            margin: 20px 0;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
-    <div class="modal-content">
-        <h1>You Won!</h1>
-        <p>Congratulations! You've matched all the pairs and completed the game.</p>
-        <div class="medal">🏅</div>
-        <br />
-        <button id="playAgainBtn" onclick="window.location.href='stages.html'">Play Again</button>
-    </div>
+    <h1>Select Stage</h1>
+
+    <div id="stageArea"></div>
+
+    <script>
+        const totalStages = 1000;
+        const stageArea = document.getElementById("stageArea");
+
+        let container = document.createElement("div");
+        container.className = "container";
+
+        for (let i = 1; i <= totalStages; i++) {
+            // Create button
+            let btn = document.createElement("a");
+            btn.className = "stage-btn";
+            btn.href = `level${i}.html`;  // You can change link structure
+            btn.textContent = "Stage " + i;
+
+            container.appendChild(btn);
+
+            // After every 10 buttons, insert an ad
+            if (i % 10 === 0) {
+                stageArea.appendChild(container);
+
+                // Create Ad container
+                let adBox = document.createElement("div");
+                adBox.className = "ad-container";
+
+                adBox.innerHTML = `
+                    <!-- Your Adsterra Banner -->
+                    <script type='text/javascript' src='//pl28100142.effectivegatecpm.com/b3/a4/06/b3a406290af525cf19e377b16859903a.js'></script>
+                `;
+
+                stageArea.appendChild(adBox);
+
+                // Start the next group of buttons
+                container = document.createElement("div");
+                container.className = "container";
+            }
+        }
+
+        // Append any remaining buttons
+        stageArea.appendChild(container);
+    </script>
 
 </body>
 </html>
