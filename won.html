@@ -1,121 +1,44 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <title>You Won!</title>
-    <meta name="description" content="You’ve completed this stage! Keep going and test your skills on the next level for more fun and challenges.">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Orbitron', sans-serif;
-            margin: 0;
-            background: #f0f0f0;
-            text-align: center;
-        }
-        /* Social Bar */
-        .social-bar {
-            display: flex;
-            justify-content: center;
-            background: #3498db;
-            padding: 10px 0;
-            gap: 15px;
-        }
-        .social-bar a {
-            color: white;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-        .social-bar a:hover {
-            transform: scale(1.2);
-        }
-
-        /* Main Content */
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: calc(100vh - 60px); /* adjust for social bar */
-            padding: 20px;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        p {
-            font-size: 1.2rem;
-            color: #34495e;
-        }
-        .button {
-            margin-top: 30px;
-            padding: 12px 25px;
-            font-size: 1rem;
-            background: #2980b9;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        .button:hover {
-            background: #2471a3;
-        }
-
-        /* Ad Container */
-        .ad-container {
-            width: 100%;
-            max-width: 800px;
-            margin: 30px auto 0;
-        }
- .social-bar a {
-  color: white;
-  font-size: 1.5rem;
-  margin: 0 10px;
-  text-decoration: none;
-  transition: transform 0.2s;
-}
-.social-bar a:hover {
-  transform: scale(1.2);
-}
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Won!</title>
+<link href="https://vjs.zencdn.net/8.20.0/video-js.css" rel="stylesheet" />
+<style>
+body { background: #1a1a1a; color: white; text-align: center; font-family: sans-serif; }
+.modal-content { margin-top: 50px; }
+</style>
 </head>
 <body>
 
-    <!-- Social Bar -->
-    <div class="social-bar">
-  <a href="https:                                
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a href="https://twitter.com" target="_blank">
-    <i class="fab fa-twitter"></i>
-  </a>
-  <a href="https:                                 
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://linkedin.com" target="_blank">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
+<div class="modal-content">
+    <h1>You Won!</h1>
+    <div class="medal">🏆</div>
+
+    <!-- VAST Video Ad -->
+    <video
+      id="vastVideo"
+      class="video-js vjs-default-skin"
+      controls
+      preload="auto"
+      width="640"
+      height="360"
+      data-setup='{}'>
+      <source src="https://actuallist.com/d.mGFizHdkGMNcvOZ/GYUy/Xenmt9ru/ZUUIlLkkPkT/Ye3GM/zlUKyIMMDHIbtTN/jXcDz_NxTpIWw-M/wN" type="application/vnd.ms-vast+xml">
+    </video>
+
+    <br />
+    <button id="playAgainBtn">Next</button>
 </div>
 
-
-    <!-- Main Content -->
-    <div class="content">
-        <h1>🎉 Congratulations! You Won! 🎉</h1>
-        <p>Keep going and try the next level for more fun and challenges!</p>
-
-        <a href="stages.html" class="button">Next Level</a>
-
-        <!-- Ad Script -->
-        <div class="ad-container">
-            <script type="text/javascript" src="//pl28100142.effectivegatecpm.com/b3/a4/06/b3a406290af525cf19e377b16859903a.js"></script>
-        </div>
-    </div>
+<script src="https://vjs.zencdn.net/8.20.0/video.min.js"></script>
+<script>
+document.getElementById('playAgainBtn').onclick = function() {
+    window.location.href = 'stages.html';
+};
+</script>
 
 </body>
 </html>
+
