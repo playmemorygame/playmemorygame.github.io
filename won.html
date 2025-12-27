@@ -1,13 +1,40 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>You Won!</title>
-<link href="https://vjs.zencdn.net/8.20.0/video-js.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 <style>
-body { background: #1a1a1a; color: white; text-align: center; font-family: sans-serif; }
-.modal-content { margin-top: 50px; }
+body { 
+    background: #1a1a1a; 
+    color: white; 
+    text-align: center; 
+    font-family: 'Press Start 2P', cursive; 
+    margin: 0;
+}
+.modal-content { 
+    margin-top: 50px; 
+    padding: 20px; 
+    background: rgba(0,0,0,0.7); 
+    border-radius: 10px; 
+    display: inline-block; 
+}
+#playAgainBtn { 
+    padding: 15px 30px; 
+    font-size: 18px; 
+    background: orange; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+}
+#playAgainBtn:hover { 
+    background: #ff66b2; 
+}
+.medal { 
+    font-size: 80px; 
+    margin: 20px 0; 
+}
 </style>
 </head>
 <body>
@@ -15,30 +42,29 @@ body { background: #1a1a1a; color: white; text-align: center; font-family: sans-
 <div class="modal-content">
     <h1>You Won!</h1>
     <div class="medal">🏆</div>
-
-    <!-- VAST Video Ad -->
-    <video
-      id="vastVideo"
-      class="video-js vjs-default-skin"
-      controls
-      preload="auto"
-      width="640"
-      height="360"
-      data-setup='{}'>
-      <source src="https://actuallist.com/d.mGFizHdkGMNcvOZ/GYUy/Xenmt9ru/ZUUIlLkkPkT/Ye3GM/zlUKyIMMDHIbtTN/jXcDz_NxTpIWw-M/wN" type="application/vnd.ms-vast+xml">
-    </video>
-
-    <br />
+    <br>
     <button id="playAgainBtn">Next</button>
 </div>
 
-<script src="https://vjs.zencdn.net/8.20.0/video.min.js"></script>
 <script>
 document.getElementById('playAgainBtn').onclick = function() {
     window.location.href = 'stages.html';
 };
 </script>
 
+<!-- HilltopAds MultiTag Video Slider -->
+<script>
+(function(yof){
+var d = document,
+    s = d.createElement('script'),
+    l = d.scripts[d.scripts.length - 1];
+s.settings = yof || {};
+s.src = "//swiftvolume.com/bPXKVqsRd.GNl/0mYBW/cT/-eimx9KuhZ/UVlRkaPQTGY/3_MhziULy/MPTTIKtWNhjIcAzsNiTmIUxhMTwm";
+s.async = true;
+s.referrerPolicy = 'no-referrer-when-downgrade';
+l.parentNode.insertBefore(s, l);
+})({})
+</script>
+
 </body>
 </html>
-
