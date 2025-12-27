@@ -32,9 +32,9 @@ body {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
     display: inline-block;
     text-align: center;
-    opacity: 0.9;
+    opacity: 0.95;
     background-size: cover;
-    margin-top: 300px;
+    margin-top: 200px;
 }
 h1 {
     font-size: 36px;
@@ -45,7 +45,7 @@ h1 {
     font-size: 80px;
     margin-bottom: 20px;
 }
-#playAgainBtn {
+button {
     background-color: orange;
     color: black;
     padding: 15px 30px;
@@ -56,7 +56,7 @@ h1 {
     transition: background-color 0.3s;
     margin-top: 20px;
 }
-#playAgainBtn:hover {
+button:hover {
     background-color: #ff66b2;
 }
 .monetag-banner {
@@ -67,29 +67,42 @@ h1 {
 </style>
 </head>
 <body>
+
 <img class="bg-image" src="IMG-20250523-WA0021.jpg" alt="Background">
+
 <div class="modal-content">
     <h1>You Won!</h1>
     <div class="medal">🏆</div>
 
-    <!-- Monetag Banner -->
-    <div class="monetag-banner">
-        <script src="https://quge5.com/88/tag.min.js" data-zone="196548" async data-cfasync="false"></script>
+    <!-- Monetag Multitag Banner -->
+    <div class="monetag-banner" id="monetagBannerContainer">
+        <script src="https://quge5.com/88/tag.min.js"
+                data-zone="196548"
+                async
+                data-cfasync="false"></script>
     </div>
 
+    <!-- Direct Link button for guaranteed popunder -->
+    <button id="directAdBtn">Watch Ad for Bonus</button>
+    <br />
+
+    <!-- Next button -->
     <button id="playAgainBtn">Next</button>
 </div>
 
 <script>
-document.getElementById('playAgainBtn').onclick = function() {
-    // Open Direct Link popunder
+// Direct Link popunder
+document.getElementById('directAdBtn').onclick = function() {
     window.open('https://otieu.com/4/10382366', '_blank');
+};
 
-    // Navigate to next stage after 500ms
-    setTimeout(function() {
-        window.location.href = 'stages.html';
-    }, 500);
+// Next button navigates to next stage
+document.getElementById('playAgainBtn').onclick = function() {
+    window.location.href = 'stages.html';
 };
 </script>
+
 </body>
 </html>
+
+
