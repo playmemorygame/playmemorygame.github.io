@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,48 +16,35 @@
             align-items: center;
             height: 100vh;
             text-align: center;
-			 /*background-image: url('IMG-20250523-WA0021.jpg');
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;*/
         }
         .bg-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      object-fit: fill; /* Stretch to cover full width and height */
-      z-index: -1;       /* Sit behind content */
-    }
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: fill;
+            z-index: -1;
+        }
         .modal-content {
-             
             padding: 40px;
             border-radius: 10px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
             display: inline-block;
             text-align: center;
-		opacity:0.9;	 
+            opacity: 0.9;
             background-size: cover;
-            margin-top:300px;
+            margin-top: 300px;
         }
-
         h1 {
             font-size: 36px;
             margin-bottom: 20px;
             color: #ff00cc;
         }
-
-        p {
-            font-size: 20px;
-            margin-bottom: 20px;
-        }
-
         .medal {
             font-size: 80px;
             margin-bottom: 20px;
         }
-
         #playAgainBtn {
             background-color: orange;
             color: black;
@@ -67,29 +54,32 @@
             cursor: pointer;
             font-size: 18px;
             transition: background-color 0.3s;
-             
         }
-
         #playAgainBtn:hover {
             background-color: #ff66b2;
         }
     </style>
 </head>
 <body>
-     <img class="bg-image" src="IMG-20250523-WA0021.jpg" alt="Background">
+    <img class="bg-image" src="IMG-20250523-WA0021.jpg" alt="Background">
     <div class="modal-content">
-        <h1></h1>
-         
-       <!-- <div class="medal"> </div>-->
-        <div class="medal"></div>
+        <h1>You Won!</h1>
+        <div class="medal">🏆</div>
         <br />
-        <button id="playAgainBtn" onclick="window.open('https://otieu.com/4/10382366', '_blank'); window.location.href='stages.html'">
-    Next
-</button>
-<button id="playAgainBtn" onclick="window.location.href='stages.html'">Next</button>
+        <button id="playAgainBtn">Next</button>
     </div>
-    
 
+    <script>
+        document.getElementById('playAgainBtn').onclick = function() {
+            // Open the Direct Link in a new tab/popunder
+            window.open('https://otieu.com/4/10382366', '_blank');
+
+            // Navigate to the next stage after a short delay
+            setTimeout(function() {
+                window.location.href = 'stages.html';
+            }, 100); // 100ms delay
+        };
+    </script>
 </body>
 </html>
 
