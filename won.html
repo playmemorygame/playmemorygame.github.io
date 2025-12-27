@@ -1,85 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Won!</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Press Start 2P', cursive;
-            background-color: #1a1a1a;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: fill;
-            z-index: -1;
-        }
-        .modal-content {
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-            display: inline-block;
-            text-align: center;
-            opacity: 0.9;
-            background-size: cover;
-            margin-top: 300px;
-        }
-        h1 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #ff00cc;
-        }
-        .medal {
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-        #playAgainBtn {
-            background-color: orange;
-            color: black;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s;
-        }
-        #playAgainBtn:hover {
-            background-color: #ff66b2;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You Won!</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    font-family: 'Press Start 2P', cursive;
+    background-color: #1a1a1a;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+.bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: fill;
+    z-index: -1;
+}
+.modal-content {
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    text-align: center;
+    opacity: 0.9;
+    background-size: cover;
+    margin-top: 300px;
+}
+h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #ff00cc;
+}
+.medal {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+#playAgainBtn {
+    background-color: orange;
+    color: black;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+#playAgainBtn:hover {
+    background-color: #ff66b2;
+}
+.monetag-banner {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+</style>
 </head>
 <body>
-    <img class="bg-image" src="IMG-20250523-WA0021.jpg" alt="Background">
-    <div class="modal-content">
-        <h1>You Won!</h1>
-        <div class="medal">🏆</div>
-        <br />
-        <button id="playAgainBtn">Next</button>
+<img class="bg-image" src="IMG-20250523-WA0021.jpg" alt="Background">
+<div class="modal-content">
+    <h1>You Won!</h1>
+    <div class="medal">🏆</div>
+
+    <!-- Monetag Banner -->
+    <div class="monetag-banner">
+        <script src="https://quge5.com/88/tag.min.js" data-zone="196548" async data-cfasync="false"></script>
     </div>
 
-    <script>
-        document.getElementById('playAgainBtn').onclick = function() {
-            // Open the Direct Link in a new tab/popunder
-            window.open('https://otieu.com/4/10382366', '_blank');
+    <button id="playAgainBtn">Next</button>
+</div>
 
-            // Navigate to the next stage after a short delay
-            setTimeout(function() {
-                window.location.href = 'stages.html';
-            }, 100); // 100ms delay
-        };
-    </script>
+<script>
+document.getElementById('playAgainBtn').onclick = function() {
+    // Open Direct Link popunder
+    window.open('https://otieu.com/4/10382366', '_blank');
+
+    // Navigate to next stage after 500ms
+    setTimeout(function() {
+        window.location.href = 'stages.html';
+    }, 500);
+};
+</script>
 </body>
 </html>
-
