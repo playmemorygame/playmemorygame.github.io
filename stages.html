@@ -405,41 +405,19 @@
       text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Adds some depth */
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
-		.scroll-hint {
+		
+   #scrollUpText {
     position: fixed;
-    bottom: 20px;
+    top: 20px;               /* stays visible at top */
     left: 50%;
     transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: clamp(14px, 3vw, 18px);
+    font-size: clamp(16px, 4vw, 22px);
     font-weight: 600;
-    letter-spacing: 2px;
-    color: #ffffff;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
-    border-radius: 30px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-    opacity: 0;
-    animation: showScrollHint 4s ease forwards;
+    color: #444;
+    background: #f2f2f2;
+    padding: 6px 14px;
+    border-radius: 6px;
     z-index: 9999;
-}
-
-/* Animation */
-@keyframes showScrollHint {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, 20px);
-    }
-    15% {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-    85% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -10px);
-    }
 }
 
     </style>
@@ -453,7 +431,8 @@
  <!-- Stage Container with Home Icon -->
  <div class="stage-container" onclick="window.location.href='navigation.html'">
   
-          <h2 class="scroll-hint">SCROLL UP</h2>
+          <h2 id="scrollUpText">SCROLL UP</h2>
+
            
      <!--<img src="homec.jpg" id="cago"width="20px" height="20px"  />-->
 </div>
@@ -1089,6 +1068,13 @@
 	</div>
 	</button> 		 
    </div>
+	<script>
+    setTimeout(() => {
+        const text = document.getElementById("scrollUpText");
+        if (text) text.style.display = "none";
+    }, 3000); // disappears after 3 seconds
+</script>
+
    <script>
     // Retrieve the text from local storage
 //const storedText2 = localStorage.getItem('stagetwoopen');
@@ -3473,5 +3459,6 @@ if (stage100Button) {
    	 
 </body>
 </html>
+
 
 
