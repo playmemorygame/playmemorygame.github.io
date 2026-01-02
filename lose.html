@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9518937155167074"
-     crossorigin="anonymous"></script>
-
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>You Lost!</title>
     <meta name="description" content="Stay motivated and improve your skills with each round. Try again and challenge yourself to get better every time!">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -33,7 +29,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            object-fit: fill;
+            object-fit: cover;
             z-index: -1;
         }
 
@@ -81,45 +77,56 @@
             .text-container { padding: 20px; }
         }
 
-        /* Ad container styling */
-        .ad-container {
-            margin: 30px auto;
+        /* Hilltop Video Slider Ad */
+        .hilltop-ad-container {
             width: 100%;
-            max-width: 800px;
+            max-width: 480px;
+            margin: 20px auto 40px;
             text-align: center;
+        }
+
+        .hilltop-ad-container iframe,
+        .hilltop-ad-container img,
+        .hilltop-ad-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
     <img class="bg-image" src="IMG-20250523-WA0024.jpg" alt="Background">
 
-  <div class="text-container">
-    <h1>Keep Going!</h1>
-    <p>
-        Every great player faces challenges — what matters is how you rise again.<br>
-        Take a short break, refocus your strategy, and come back stronger.<br>
-        Each attempt helps you recognize patterns and improve your memory skills.<br>
-        Try to notice recurring challenges in previous levels to gain an edge in the next stage.
-    </p>
-    <p>
-        Tip: Pay attention to sequences carefully and anticipate the next move — small improvements lead to big results!
-    </p>
-    <p>
-        Achievements unlocked: <strong>Resilient Player</strong> — you’re building your mastery step by step!
-    </p>
-    <button id="playAgainBtn" onclick="window.location.href='stages.html'">Try Again</button>
-</div>
+    <div class="text-container">
+        <h1>Keep Going!</h1>
+        <p>
+            Every great player faces challenges — what matters is how you rise again.<br>
+            Take a short break, refocus your strategy, and come back stronger.<br>
+            Each attempt helps you recognize patterns and improve your memory skills.<br>
+            Try to notice recurring challenges in previous levels to gain an edge in the next stage.
+        </p>
+        <p>
+            Tip: Pay attention to sequences carefully and anticipate the next move — small improvements lead to big results!
+        </p>
+        <p>
+            Achievements unlocked: <strong>Resilient Player</strong> — you’re building your mastery step by step!
+        </p>
+        <button id="playAgainBtn" onclick="window.location.href='stages.html'">Try Again</button>
+    </div>
 
-    <!-- AdSense placement (below the content) -->
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-            style="display:block"
-            data-ad-client="ca-pub-9518937155167074"
-            data-ad-slot="1234567890"
-            data-ad-format="auto"
-            data-full-width-responsive="true"></ins>
+    <!-- Hilltop MultiTag Video Slider -->
+    <div class="ad-container hilltop-ad-container">
         <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
+        (function(yof){
+            var d = document,
+                s = d.createElement('script'),
+                l = d.scripts[d.scripts.length - 1];
+            s.settings = yof || {};
+            s.src = "//swiftvolume.com/bPXKVqsRd.GNl/0mYBW/cT/-eimx9KuhZ/UVlRkaPQTGY/3_MhziULy/MPTTIKtWNhjIcAzsNiTmIUxhMTwm";
+            s.async = true;
+            s.referrerPolicy = 'no-referrer-when-downgrade';
+            l.parentNode.insertBefore(s, l);
+        })({});
         </script>
     </div>
 </body>
